@@ -32,8 +32,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.dismissModalViewControllerAnimated(true)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController!) -> Void {
-        NSLog("Canceled")
+    func imagePickerControllerDidCancel(picker: UIImagePickerController!){
         self.dismissModalViewControllerAnimated(true)
     }
     

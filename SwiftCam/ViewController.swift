@@ -30,6 +30,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
             println("画像選択完了")
             
+            
             self.dismissModalViewControllerAnimated(true)
         }
         

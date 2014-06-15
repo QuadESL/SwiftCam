@@ -11,19 +11,23 @@ import AVFoundation
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate
 {
+    
+    var imagePicker:UIImagePickerController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            imagePicker = UIImagePickerController()
+            imagePicker!.delegate = self
+            imagePicker!.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker!.allowsEditing = false
+        }
     }
     
-    //UIImagePickerControllerはviewDidLoadの中では書けないらしい
+    //UIImagePickerControllerはviewDidLoadの中では書けない
     override func viewDidAppear(animated: Bool) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            var imagePicker:UIImagePickerController = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            imagePicker.allowsEditing = false
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     //UIImagePickerControllerのデリゲートメソッド
